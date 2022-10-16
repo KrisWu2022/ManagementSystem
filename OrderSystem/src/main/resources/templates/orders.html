@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Manage Orders</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container-fluid text-center">
+  <div><h2>Manage Orders</h2></div>
+  <div class="m-2">
+    <a class="h3" th:href="@{/orders/new}">Add New Order</a>
+  </div>
+  <div>
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+        <th>ID</th>
+        <th>Order Name</th>
+        <th>Order Line</th>
+        <th>Customer</th>
+        <th>Date</th>
+        <th></th>
+      </thead>
+      <tbody>
+        <th:block th:each="order:${listOrders}">
+          <tr>
+            <td>[[${order.id}]]</td>
+            <td>[[${order.order_name}]]</td>
+            <td>[[${order.orderline}]]</td>
+            <td>[[${order.customer}]]</td>
+            <td>[[${order.date}]]</td>
+            <td>
+              <a class="h4 mr-3" th:href="@{'/orders/edit/'+ ${order.id}}">Edit</a>
+              <a class="h4" th:href="@{'/orders/delete/'+ ${order.id}}">Delete</a>
+            </td>
+          </tr>
+
+
+        </th:block>
+
+      </tbody>
+
+
+    </table>
+
+
+  </div>
+
+</div>
+</body>
+</html>
