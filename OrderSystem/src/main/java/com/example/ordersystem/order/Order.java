@@ -18,6 +18,8 @@ public class Order {
 
     private Date date;
 
+    private Integer orderline;
+
     public Integer getId() {
         return id;
     }
@@ -47,6 +49,26 @@ public class Order {
     }
 
     public void setDate(Date date) {
+
         this.date = date;
+    }
+
+    public Integer getOrderline() {
+        return orderline;
+    }
+
+    public void setOrderline(Integer orderline) {
+        this.orderline = orderline;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", order_name='" + order_name + '\'' +
+                ", customer='" + customer + '\'' +
+                ", date=" + date +
+                ", orderline=" + orderline +
+                '}';
     }
 }

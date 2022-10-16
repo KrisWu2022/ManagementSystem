@@ -7,6 +7,7 @@ import javax.persistence.*;
 public class Customer {
 
     @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
 
     @Column(nullable=false)
@@ -56,5 +57,16 @@ public class Customer {
 
     public void setTelephone(Integer telephone) {
         this.telephone = telephone;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", customer='" + customer + '\'' +
+                ", registrationCode=" + registrationCode +
+                ", email='" + email + '\'' +
+                ", telephone=" + telephone +
+                '}';
     }
 }
