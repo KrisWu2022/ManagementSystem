@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Customers</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container-fluid text-center">
+    <div><h2>Manage Customers</h2></div>
+    <div class="m-2">
+        <a class="h3" th:href="@{/customers/new}">Add New Customer</a>
+    </div>
+
+    <div th:if="${message}" class="alert alert-success text-center">
+        [[${message}]]
+
+    </div>
+
+    <div>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <th>ID</th>
+            <th>Customer</th>
+            <th>Registration Code</th>
+            <th>Email</th>
+            <th>Telephone</th>
+
+            </thead>
+            <tbody>
+            <th:block th:each="customer:${listCustomers}">
+                <tr>
+                    <td>[[${customer.id}]]</td>
+                    <td>[[${customer.customer}]]</td>
+                    <td>[[${customer.registrationCode}]]</td>
+                    <td>[[${customer.email}]]</td>
+                    <td>[[${customer.telephone}]]</td>
+                </tr>
+
+
+            </th:block>
+
+            </tbody>
+
+
+        </table>
+
+
+    </div>
+
+</div>
+</body>
+</html>

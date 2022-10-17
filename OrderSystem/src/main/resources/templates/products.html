@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Products</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container-fluid text-center">
+    <div><h2>Manage Products</h2></div>
+    <div class="m-2">
+        <a class="h3" th:href="@{/products/new}">Add New Product</a>
+    </div>
+
+    <div th:if="${message}" class="alert alert-success text-center">
+        [[${message}]]
+
+    </div>
+
+    <div>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <th>ID</th>
+            <th>Product</th>
+            <th>sku Code</th>
+            <th>Unit Price</th>
+
+            </thead>
+            <tbody>
+            <th:block th:each="product:${listProducts}">
+                <tr>
+                    <td>[[${product.id}]]</td>
+                    <td>[[${product.product}]]</td>
+                    <td>[[${product.skuCode}]]</td>
+                    <td>[[${product.unitPrice}]]</td>
+                </tr>
+
+
+            </th:block>
+
+            </tbody>
+
+
+        </table>
+
+
+    </div>
+
+</div>
+</body>
+</html>
